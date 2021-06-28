@@ -1,0 +1,25 @@
+{
+  "site": {
+    "sampleSize": 0,
+    "intents": [
+      {
+        "id": "buyALaptop",
+        "signals": [
+          {
+            "type": "PVI",
+            "freq": "always",
+            "scope": "visitor",
+            "str": 25,
+            "path": {
+              "cs": false,
+              "expr": "/laptops",
+              "type": "exact"
+            }
+          }
+        ]
+      }
+    ],
+    "enrichments": [],
+    "tests": []
+  }
+}
