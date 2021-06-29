@@ -3,16 +3,52 @@
     "sampleSize": 0,
     "intents": [
       {
-        "id": "buyALaptop",
+        "id": "buyalaptop",
         "signals": [
           {
-            "type": "PVI",
+            "type": "EVT",
             "freq": "always",
             "scope": "visitor",
-            "str": 25,
-            "path": {
+            "str": 75,
+            "label": {
               "cs": false,
-              "expr": "/laptops",
+              "expr": "photo",
+              "type": "exact"
+            },
+            "value": {
+              "cs": false,
+              "expr": "photo",
+              "type": "exact"
+            },
+            "category": {
+              "cs": false,
+              "expr": "photo",
+              "type": "exact"
+            }
+          }
+        ]
+      },
+      {
+        "id": "byAPhotoCamera",
+        "signals": [
+          {
+            "type": "EVT",
+            "freq": "always",
+            "scope": "visitor",
+            "str": 100,
+            "label": {
+              "cs": false,
+              "expr": "Click",
+              "type": "exact"
+            },
+            "value": {
+              "cs": false,
+              "expr": "photo camera",
+              "type": "exact"
+            },
+            "category": {
+              "cs": false,
+              "expr": "Buy",
               "type": "exact"
             }
           }
