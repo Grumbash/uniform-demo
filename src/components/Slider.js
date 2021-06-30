@@ -1,12 +1,6 @@
 import React from "react";
-import Carousel from "react-material-ui-carousel";
 import { useQuery, gql } from "@apollo/client";
-import {
-  Personalize,
-  useUniformTracker,
-} from "@uniformdev/optimize-tracker-react";
-
-import CarouselItem from "./CarouselItem";
+import Carousel from "./Carousel";
 
 const SLIDES = gql`
   query getSlides($id: String!) {
@@ -48,16 +42,6 @@ const SLIDES = gql`
   }
 `;
 
-const Test = ({ slidesCollection }) => {
-  return (
-    <Carousel>
-      {slidesCollection.items.map((item) => (
-        <CarouselItem key={item.sys.id} item={item} />
-      ))}
-    </Carousel>
-  );
-};
-
 function Slider({ pageLink, id }) {
   // const query = pageLink === "/" ? SLIDES;
   const { loading, error, data } = useQuery(SLIDES, {
@@ -76,19 +60,13 @@ function Slider({ pageLink, id }) {
     };
   });
 
-  if (pageLink === "/")
-    return (
-      <Personalize variations={mappedSides} component={Test}></Personalize>
-    );
-  else {
-    return (
-      <Carousel>
-        {data.carousel.slidesCollection.items.map((item) => (
-          <CarouselItem key={item.sys.id} item={item} />
-        ))}
-      </Carousel>
-    );
-  }
+  return (
+    <Carousel
+      data={data}
+      mappedSides={mappedSides}
+      pageLink={pageLink}
+    ></Carousel>
+  );
 }
 
 export default Slider;
