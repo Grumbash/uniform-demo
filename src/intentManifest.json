@@ -3,52 +3,52 @@
     "sampleSize": 0,
     "intents": [
       {
-        "id": "buyalaptop",
+        "id": "grandPrix",
         "signals": [
           {
             "type": "EVT",
-            "freq": "always",
-            "scope": "visitor",
-            "str": 75,
+            "freq": "visit",
+            "scope": "visit",
+            "str": 50,
             "label": {
               "cs": false,
-              "expr": "photo",
+              "expr": "grandPrix",
               "type": "exact"
             },
             "value": {
               "cs": false,
-              "expr": "photo",
+              "expr": "grandPrix",
               "type": "exact"
             },
             "category": {
               "cs": false,
-              "expr": "photo",
+              "expr": "grandPrix",
               "type": "exact"
             }
           }
         ]
       },
       {
-        "id": "byAPhotoCamera",
+        "id": "about",
         "signals": [
           {
             "type": "EVT",
-            "freq": "always",
-            "scope": "visitor",
-            "str": 100,
+            "freq": "visit",
+            "scope": "visit",
+            "str": 75,
             "label": {
               "cs": false,
-              "expr": "Click",
+              "expr": "about",
               "type": "exact"
             },
             "value": {
               "cs": false,
-              "expr": "photo camera",
+              "expr": "about",
               "type": "exact"
             },
             "category": {
               "cs": false,
-              "expr": "Buy",
+              "expr": "about",
               "type": "exact"
             }
           }

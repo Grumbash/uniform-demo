@@ -26,20 +26,10 @@ const PAGE = gql`
   query GetPage($id: String!) {
     page(id: $id) {
       name
+      linkTo
       pageContent {
-        title
-        slidesCollection {
-          items {
-            sys {
-              id
-            }
-            title
-            slideImage {
-              url
-            }
-            ctaLink
-            ctaTitle
-          }
+        sys {
+          id
         }
       }
       pageSection {
@@ -74,6 +64,7 @@ function Page({ pageCollection }) {
   const {
     page: {
       name,
+      linkTo,
       pageContent,
       pageSection: {
         panesCollection: {
@@ -90,7 +81,7 @@ function Page({ pageCollection }) {
       <Typography variant="h3" component="h3">
         {pageContent.title}
       </Typography>
-      <Slider items={pageContent.slidesCollection.items}></Slider>
+      <Slider id={pageContent.sys.id} pageLink={linkTo} />
       <Typography variant="h4" component="h4">
         {genericContent.title}
       </Typography>
