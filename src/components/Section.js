@@ -4,7 +4,6 @@ import Image from "material-ui-image";
 import { Personalize } from "@uniformdev/optimize-tracker-react";
 
 const PersonalizedGeneric = (props) => {
-  console.log(props);
   return (
     <>
       <Typography variant="h4" component="h4">
