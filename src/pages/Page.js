@@ -6,9 +6,9 @@ import {
 import { useQuery, gql } from "@apollo/client";
 import { useLocation } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
-import Image from "material-ui-image";
 
 import Slider from "../components/Slider";
+import Section from "../components/Section";
 
 const PAGE = gql`
   fragment Image on MediaImage {
@@ -16,11 +16,13 @@ const PAGE = gql`
     image {
       url
     }
+    unfrmOptIntentTag
   }
 
   fragment Generic on GenericContent {
     title
     content
+    unfrmOptIntentTag
   }
 
   query GetPage($id: String!) {
@@ -39,6 +41,7 @@ const PAGE = gql`
             ...Image
           }
         }
+        unfrmOptIntentTag
       }
     }
   }
@@ -66,11 +69,7 @@ function Page({ pageCollection }) {
       name,
       linkTo,
       pageContent,
-      pageSection: {
-        panesCollection: {
-          items: [genericContent, imageMedia],
-        },
-      },
+      pageSection: { panesCollection },
     },
   } = data;
   return (
@@ -82,16 +81,7 @@ function Page({ pageCollection }) {
         {pageContent.title}
       </Typography>
       <Slider id={pageContent.sys.id} pageLink={linkTo} />
-      <Typography variant="h4" component="h4">
-        {genericContent.title}
-      </Typography>
-      <Typography variant="body2" component="p">
-        {genericContent.content}
-      </Typography>
-      <Typography variant="h4" component="h4">
-        {imageMedia.name}
-      </Typography>
-      <Image src={imageMedia.image.url}></Image>
+      <Section panesCollection={panesCollection.items}></Section>
     </div>
   );
 }

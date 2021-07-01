@@ -7,8 +7,8 @@
         "signals": [
           {
             "type": "EVT",
-            "freq": "visit",
-            "scope": "visit",
+            "freq": "always",
+            "scope": "visitor",
             "str": 50,
             "label": {
               "cs": false,
@@ -33,8 +33,8 @@
         "signals": [
           {
             "type": "EVT",
-            "freq": "visit",
-            "scope": "visit",
+            "freq": "always",
+            "scope": "visitor",
             "str": 75,
             "label": {
               "cs": false,
