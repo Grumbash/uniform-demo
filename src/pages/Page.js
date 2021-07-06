@@ -1,8 +1,4 @@
 import React from "react";
-import {
-  Personalize,
-  useUniformTracker,
-} from "@uniformdev/optimize-tracker-react";
 import { useQuery, gql } from "@apollo/client";
 import { useLocation } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
@@ -54,7 +50,6 @@ const getPageByName =
   };
 
 function Page({ pageCollection }) {
-  const { tracker } = useUniformTracker();
   const { pathname } = useLocation();
 
   const { loading, error, data } = useQuery(PAGE, {
@@ -74,9 +69,9 @@ function Page({ pageCollection }) {
   } = data;
   return (
     <div>
-      <Typography variant="h1" component="h1">
+      {/* <Typography variant="h1" component="h1">
         {name}
-      </Typography>
+      </Typography> */}
       <Typography variant="h3" component="h3">
         {pageContent.title}
       </Typography>

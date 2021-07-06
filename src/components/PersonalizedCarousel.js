@@ -4,7 +4,7 @@ import CarouselItem from "./CarouselItem";
 
 const PersonalizedCarousel = ({ slidesCollection }) => {
   return (
-    <Carousel>
+    <Carousel autoPlay={false}>
       {slidesCollection.items.map((item) => (
         <CarouselItem key={item.sys.id} item={item} />
       ))}

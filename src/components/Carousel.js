@@ -14,7 +14,7 @@ const Carousel = ({ pageLink, mappedSides, data }) => {
     );
   else {
     return (
-      <CarouselLib>
+      <CarouselLib autoPlay={false}>
         {data.carousel.slidesCollection.items.map((item) => (
           <CarouselItem key={item.sys.id} item={item} />
         ))}
